@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>..\..\output</OutputPath>
+    <OutputPath></OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,6 +15,13 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AmaraSolutions\AmaraSolutions.csproj" />
+    <ProjectReference Include="..\UserManagement.Models\UserManagement.Models.csproj" />
+    <ProjectReference Include="..\UserManagement.Repository.Dapper\UserManagement.Repository.Dapper.csproj" />
+    <ProjectReference Include="..\UserManagement.Repository.EF\UserManagement.Repository.EF.csproj" />
   </ItemGroup>
 
 </Project>
