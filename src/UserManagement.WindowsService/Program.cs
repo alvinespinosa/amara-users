@@ -29,10 +29,17 @@ namespace UserManagement.WindowsService
                    })
                    .UseConfiguration(config)
                    //.ConfigureServices(
-                   //    services => services
-                   //        .AddSingleton<IServiceStateManager>(new ServiceStateManager(ServiceState.Active))
-                   //        .AddSingleton<ILoggerFactory>(loggerFactory)
+                   //services => services
+                   //    .AddSingleton<IServiceStateManager>(new ServiceStateManager(ServiceState.Active))
+                   //    .AddSingleton<ILoggerFactory>(loggerFactory)
                    //)
+                   .ConfigureAppConfiguration((appConfig) =>
+                   {
+                       appConfig
+                        .SetBasePath(pathToContentRoot)
+                        .AddJsonFile(Path.Combine(pathToContentRoot, "appSettings.json"))
+                        .AddEnvironmentVariables();
+                   })
                    .UseContentRoot(pathToContentRoot)
                    .UseIISIntegration()
                    .UseStartup<Startup>()
@@ -52,8 +59,7 @@ namespace UserManagement.WindowsService
             string contentRoot;
             if (string.Equals(environment, EnvironmentName.Development, StringComparison.OrdinalIgnoreCase))
             {
-                // We're using the IdentityServer project as the root.
-                contentRoot = @"..\..\..\..\UserManagement";
+                contentRoot = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;// @"..\..\..\..\..\UserManagement";
             }
             else
             {
@@ -66,7 +72,7 @@ namespace UserManagement.WindowsService
 
         private static string GetExePath()
         {
-            var pathToExe = Process.GetCurrentProcess().MainModule.FileName;
+            var pathToExe =  Process.GetCurrentProcess().MainModule.FileName;
             var contentRoot = Path.GetDirectoryName(pathToExe);
             return contentRoot;
         }

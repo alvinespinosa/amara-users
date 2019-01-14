@@ -3,7 +3,7 @@ using System.Data;
 
 namespace Amara.Solutions.Models
 {
-    public interface IReadOnlyRepository<T> where T : class, IEntity
+    public interface IReadOnlyRepository<T> where T : class
     {
         IDbConnection Connection { get; }
 

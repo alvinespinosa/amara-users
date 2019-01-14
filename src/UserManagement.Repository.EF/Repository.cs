@@ -1,57 +1,61 @@
-﻿using Amara.Solutions.Models;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using UserManagement.Repository.EF.Interface;
 
 namespace UserManagement.Repository.EF
 {
-    public class Repository<T> : IRepository<T> where T : class, IEntity
+    public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly DbSet<T> _dbSet;
+        protected readonly DbContext _context;
 
-        public IDbConnection Connection => throw new NotImplementedException();
+        //private readonly DbSet<T> _dbSet;
+        //private readonly IConfiguration _config;
 
-        public Repository(DbSet<T> dbSet)
+        //public IDbConnection Connection => new SqlConnection(_config.GetConnectionString("MyConnectionString"));
+
+        public Repository(DbContext context)//, DbSet<T> dbSet, IConfiguration config)
         {
-            this._dbSet = dbSet;
+            _context = context;
+            //_dbSet = dbSet;
+            //_config = config;
         }
 
-        public void Add(T entity)
+        public T FindId(Guid id)
         {
-            _dbSet.Add(entity);
-        }
-
-        public IQueryable<T> AsQueryable()
-        {
-            return _dbSet.AsQueryable();
-        }
-
-        public void Attach(T entity)
-        {
-            _dbSet.Attach(entity);
-        }
-
-        public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
-        {
-            return _dbSet.Where(predicate);
-        }
-
-        public T FindById(string id)
-        {
-            return _dbSet.Single(t => t.Id == id);
+            return _context.Set<T>().Find(id);
         }
 
         public IEnumerable<T> GetAll()
         {
-            return _dbSet;
+            return _context.Set<T>().ToList();
+        }
+
+        public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
+        {
+            return _context.Set<T>().Where(predicate);
+        }
+
+        public void Add(T entity)
+        {
+            _context.Set<T>().Add(entity);
+        }
+
+        public void AddRange(IEnumerable<T> entities)
+        {
+            _context.Set<T>().AddRange(entities);
         }
 
         public void Remove(T entity)
         {
-            _dbSet.Remove(entity);
+            _context.Set<T>().Remove(entity);
+        }
+
+        public void RemoveRange(IEnumerable<T> entities)
+        {
+            _context.Set<T>().RemoveRange(entities);
         }
     }
 }

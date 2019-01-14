@@ -3,6 +3,7 @@ using Amara.UserManagement.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using UserManagement.Models;
+using UserManagement.Repository.EF.Interface;
 
 namespace Amara.UserManagement.Services
 {
@@ -22,7 +23,7 @@ namespace Amara.UserManagement.Services
 
         public void AddUser(User user)
         {
-            _unitOfWork.UserRepository.Add(user);
+            _unitOfWork.Users.Add(user);
             _unitOfWork.Save();
         }
 

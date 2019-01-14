@@ -63,4 +63,7 @@
   <ItemGroup>
     <Build Include="Schemas\dbo\Users.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ABS.publish.xml" />
+  </ItemGroup>
 </Project>

@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Amara.Solutions.Models
 {
-    public interface IRepository<T> : IReadOnlyRepository<T> where T : class, IEntity
+    public interface IRepository<T> : IReadOnlyRepository<T> where T : class
     {
         IQueryable<T> AsQueryable();
 

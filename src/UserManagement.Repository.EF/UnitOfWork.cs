@@ -1,28 +1,29 @@
-﻿using System.Data.Entity;
-using Amara.Solutions.Models;
-using UserManagement.Models;
+﻿using UserManagement.Repository.EF.Data;
+using UserManagement.Repository.EF.Interface;
 
 namespace UserManagement.Repository.EF
 {
-    public class UnitOfWork : DbContext, IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
-        private readonly Repository<User> _userRepository;
+        //private readonly UserContext _context;
 
-        public DbSet<User> Users { get; set; }
-
-        public UnitOfWork()
+        public UnitOfWork()//UserContext context, 
+            //IUserRepository users)
         {
-            _userRepository = new Repository<User>(Users);
+            _context = new UserContext();// context;
+            Users = new UserRepository(null);
         }
 
-        public IRepository<User> UserRepository
+        public IUserRepository Users { get; private set; }
+
+        public void Dispose()
         {
-            get { return _userRepository; }
+            //_context.Dispose();
         }
 
         public void Save()
         {
-            SaveChanges();
+            //_context.SaveChanges();
         }
     }
 }

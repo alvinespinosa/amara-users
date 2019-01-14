@@ -1,11 +1,12 @@
 ﻿using Amara.Solutions.Models;
 using System;
+using UserManagement.Models;
 
-namespace UserManagement.Models
+namespace UserManagement.Repository.EF.Interface
 {
     public interface IUnitOfWork: IDisposable
     {
-        IRepository<User> UserRepository { get; }
+        IUserRepository Users { get; }
 
         void Save();
     }

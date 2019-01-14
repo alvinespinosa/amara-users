@@ -1,8 +1,16 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Amara.Solutions.Models;
+using Amara.UserManagement.Services;
+using Amara.UserManagement.Services.Interfaces;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using UserManagement.Models;
+using UserManagement.Repository.EF;
+using UserManagement.Repository.EF.Interface;
+using UserRepositoryDapper = UserManagement.Repository.Dapper.UserRepository;
+using UserRepositoryEF = UserManagement.Repository.EF.UserRepository;
 
 namespace Amara.UserManagement
 {
@@ -19,10 +27,18 @@ namespace Amara.UserManagement
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();//.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services
+                .AddTransient<IUserService, UserService>()
+                .AddTransient<IUnitOfWork, UnitOfWork>()
+                .AddTransient<IUserRepository, UserRepositoryEF>()
+                .AddTransient<IReadOnlyRepository<User>,  UserRepositoryDapper>();
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

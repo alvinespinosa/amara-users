@@ -1,16 +1,30 @@
 ﻿using Amara.Solutions.Models;
 using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using UserManagement.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace UserManagement.Repository.Dapper
 {
     public class UserRepository : IReadOnlyRepository<User>
     {
-        public IDbConnection Connection => throw new NotImplementedException();
+        private readonly IConfiguration _config;
+
+        public UserRepository(IConfiguration config)
+        {
+            _config = config;
+        }
+
+        public IDbConnection Connection
+        {
+            get
+            {
+                return new SqlConnection(_config.GetConnectionString("MyConnectionString"));
+            }
+        }
 
         public User FindById(string id)
         {

@@ -29,11 +29,11 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ABS", "ABS\ABS.sqlproj", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Data Access Layer", "4 - Data Access Layer", "{4153AB6F-3A52-4696-BCEA-68C6638E7ADF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Repository.Dapper", "UserManagement.Repository.Dapper\UserManagement.Repository.Dapper.csproj", "{98D12306-6813-4637-9CDC-53041E771142}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.Repository.Dapper", "UserManagement.Repository.Dapper\UserManagement.Repository.Dapper.csproj", "{98D12306-6813-4637-9CDC-53041E771142}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Repository.EF", "UserManagement.Repository.EF\UserManagement.Repository.EF.csproj", "{71184B35-5BFC-498B-8345-A274092DFFE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.Repository.EF", "UserManagement.Repository.EF\UserManagement.Repository.EF.csproj", "{71184B35-5BFC-498B-8345-A274092DFFE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Models", "UserManagement.Models\UserManagement.Models.csproj", "{8C77F3F1-CF39-4899-8266-B5531539F385}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.Models", "UserManagement.Models\UserManagement.Models.csproj", "{8C77F3F1-CF39-4899-8266-B5531539F385}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

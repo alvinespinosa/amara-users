@@ -7,10 +7,16 @@ namespace Amara.UserManagement.Controllers
     [Route("users")]
     public class UsersController: ControllerBase
     {
-        private IUserService _userService;
+        private  IUserService _userService;
         public UsersController(IUserService userService)
         {
-            this._userService = userService;
+            _userService = userService;
+
+            var user = new User
+            {
+                FirstName="kc"
+            };
+            _userService.AddUser(user);
         }
 
         [HttpPost]
@@ -27,7 +33,7 @@ namespace Amara.UserManagement.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var users = this._userService.GetAllUser();
+            var users = _userService.GetAllUser();
 
             return Ok(users);
         }
