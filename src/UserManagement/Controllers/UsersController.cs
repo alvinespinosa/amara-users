@@ -11,12 +11,6 @@ namespace Amara.UserManagement.Controllers
         public UsersController(IUserService userService)
         {
             _userService = userService;
-
-            var user = new User
-            {
-                FirstName="kc"
-            };
-            _userService.AddUser(user);
         }
 
         [HttpPost]
