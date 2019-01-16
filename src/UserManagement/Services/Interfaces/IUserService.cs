@@ -8,6 +8,6 @@ namespace Amara.UserManagement.Services.Interfaces
         void AddUser(User user);
         IEnumerable<User> GetAllUser();
         User GetUserById(string id);
-        void UpdateUser(string id, User user);
+        bool UpdateUser(string id, User user);
     }
 }

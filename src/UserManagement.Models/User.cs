@@ -19,6 +19,6 @@ namespace UserManagement.Models
         public string Password { get; set; }
         public bool PasswordNeverExpired { get; set; }
         public string ForgotPasswordKey { get; set; }
-        public bool LockedAt { get; set; }
+        public DateTime LockedAt { get; set; }
     }
 }

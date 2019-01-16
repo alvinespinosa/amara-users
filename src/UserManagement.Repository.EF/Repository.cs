@@ -11,16 +11,9 @@ namespace UserManagement.Repository.EF
     {
         protected readonly DbContext _context;
 
-        //private readonly DbSet<T> _dbSet;
-        //private readonly IConfiguration _config;
-
-        //public IDbConnection Connection => new SqlConnection(_config.GetConnectionString("MyConnectionString"));
-
-        public Repository(DbContext context)//, DbSet<T> dbSet, IConfiguration config)
+        public Repository(DbContext context)
         {
             _context = context;
-            //_dbSet = dbSet;
-            //_config = config;
         }
 
         public T FindId(Guid id)
@@ -41,6 +34,11 @@ namespace UserManagement.Repository.EF
         public void Add(T entity)
         {
             _context.Set<T>().Add(entity);
+        }
+
+        public void Update(T entity)
+        {
+            _context.Set<T>().Update(entity);
         }
 
         public void AddRange(IEnumerable<T> entities)

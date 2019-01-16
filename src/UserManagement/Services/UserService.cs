@@ -37,9 +37,13 @@ namespace Amara.UserManagement.Services
             return _userRepository.FindById(id);
         }
 
-        public void UpdateUser(string id, User user)
+        public bool UpdateUser(string id, User user)
         {
-            throw new NotImplementedException();
+            user.Id = Guid.Parse(id);
+            _unitOfWork.Users.Update(user);
+            _unitOfWork.Save();
+
+            return true;
         }
     }
 }
