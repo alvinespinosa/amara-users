@@ -1,6 +1,4 @@
-﻿using Amara.Solutions.Models;
-using System;
-using UserManagement.Models;
+﻿using System;
 
 namespace UserManagement.Repository.EF.Interface
 {

@@ -11,7 +11,7 @@ namespace UserManagement.Repository.EF
             IUserRepository users)
         {
             _context = context;
-            Users = new UserRepository(context);
+            Users = users;// new UserRepository(context);
         }
 
         public IUserRepository Users { get; private set; }

@@ -1,13 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
 using UserManagement.Repository.EF.Interface;
 
 namespace UserManagement.Repository.EF
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public abstract class Repository<T> : IRepository<T> where T : class
     {
         protected readonly DbContext _context;
 
@@ -16,24 +13,29 @@ namespace UserManagement.Repository.EF
             _context = context;
         }
 
-        public T FindId(Guid id)
-        {
-            return _context.Set<T>().Find(id);
-        }
+        //public T FindId(Guid id)
+        //{
+        //    return _context.Set<T>().Find(id);
+        //}
 
-        public IEnumerable<T> GetAll()
-        {
-            return _context.Set<T>().ToList();
-        }
+        //public IEnumerable<T> GetAll()
+        //{
+        //    return _context.Set<T>().ToList();
+        //}
 
-        public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
-        {
-            return _context.Set<T>().Where(predicate);
-        }
+        //public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
+        //{
+        //    return _context.Set<T>().Where(predicate);
+        //}
 
         public void Add(T entity)
         {
             _context.Set<T>().Add(entity);
+        }
+
+        public void AddRange(IEnumerable<T> entities)
+        {
+            _context.Set<T>().AddRange(entities);
         }
 
         public void Update(T entity)
@@ -41,9 +43,9 @@ namespace UserManagement.Repository.EF
             _context.Set<T>().Update(entity);
         }
 
-        public void AddRange(IEnumerable<T> entities)
+        public void UpdateRange(IEnumerable<T> entities)
         {
-            _context.Set<T>().AddRange(entities);
+            _context.Set<T>().UpdateRange(entities);
         }
 
         public void Remove(T entity)

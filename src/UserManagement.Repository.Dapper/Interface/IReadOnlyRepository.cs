@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 
-namespace Amara.Solutions.Models
+namespace UserManagement.Repository.Dapper.Interface
 {
     public interface IReadOnlyRepository<T> where T : class
     {

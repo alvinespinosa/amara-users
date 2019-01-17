@@ -1,11 +1,11 @@
-﻿using Amara.Solutions.Models;
-using Dapper;
+﻿using Dapper;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using UserManagement.Models;
 using Microsoft.Extensions.Configuration;
+using UserManagement.Repository.Dapper.Interface;
 
 namespace UserManagement.Repository.Dapper
 {

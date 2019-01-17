@@ -18,7 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AmaraSolutions\AmaraSolutions.csproj" />
     <ProjectReference Include="..\UserManagement.Models\UserManagement.Models.csproj" />
     <ProjectReference Include="..\UserManagement.Repository.Dapper\UserManagement.Repository.Dapper.csproj" />
     <ProjectReference Include="..\UserManagement.Repository.EF\UserManagement.Repository.EF.csproj" />

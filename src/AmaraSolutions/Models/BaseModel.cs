@@ -2,7 +2,7 @@
 
 namespace Amara.Solutions.Models
 {
-    public class BaseModel : IEntity
+    public abstract class BaseModel : IEntity
     {
         public Guid Id { get ; set ; }
         public DateTime CreatedAt { get; set; }
