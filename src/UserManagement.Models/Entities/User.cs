@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UserManagement.Models
+namespace UserManagement.Models.Entities
 {
     public class User : BaseModel
     {

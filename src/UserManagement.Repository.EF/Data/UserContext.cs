@@ -1,29 +1,22 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using UserManagement.Models;
+using UserManagement.Models.Entities;
 
 namespace UserManagement.Repository.EF.Data
 {
     public class UserContext : DbContext
     {
-        //private readonly IConfiguration _config;
-
-        public UserContext(DbContextOptions<UserContext> opt)//, IConfiguration config)
+        public UserContext(DbContextOptions<UserContext> opt)
             : base(opt)
         {
-            //_config = config;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
-            //optionBuilder.UseSqlServer(_config.GetConnectionString("MyConnectionString"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
-        }
-        
+        }        
 
         public virtual DbSet<User> Users { get; set; }
     }

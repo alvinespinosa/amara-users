@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using UserManagement.Models;
+using UserManagement.Models.Entities;
 using UserManagement.Repository.Dapper.Interface;
 using UserManagement.Repository.EF;
 using UserManagement.Repository.EF.Data;
@@ -33,6 +33,13 @@ namespace Amara.UserManagement
             services.AddDbContext<UserContext>(
                 opt => opt.UseSqlServer(
                     Configuration["ConnectionStrings:MyConnectionString"]));
+
+            // Configure jwt authentication
+            //services.AddAuthenticationCore(x =>
+            //{
+            //    x.DefaultAuthenticateScheme = JwtBearerDefaults
+            //})
+            //.addjw;
 
             services
                 .AddTransient<IUserService, UserService>()

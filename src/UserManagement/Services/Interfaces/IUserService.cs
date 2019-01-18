@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using UserManagement.Models;
+using UserManagement.Models.Entities;
 
 namespace Amara.UserManagement.Services.Interfaces
 {

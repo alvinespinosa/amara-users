@@ -1,6 +1,6 @@
 ﻿using Amara.UserManagement.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using UserManagement.Models;
+using UserManagement.Models.Entities;
 
 namespace Amara.UserManagement.Controllers
 {

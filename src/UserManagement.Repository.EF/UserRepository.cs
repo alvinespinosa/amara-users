@@ -1,4 +1,4 @@
-﻿using UserManagement.Models;
+﻿using UserManagement.Models.Entities;
 using UserManagement.Repository.EF.Data;
 using UserManagement.Repository.EF.Interface;
 

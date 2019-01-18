@@ -1,7 +1,7 @@
 ﻿using Amara.UserManagement.Services.Interfaces;
 using System;
 using System.Collections.Generic;
-using UserManagement.Models;
+using UserManagement.Models.Entities;
 using UserManagement.Repository.Dapper.Interface;
 using UserManagement.Repository.EF.Interface;
 
